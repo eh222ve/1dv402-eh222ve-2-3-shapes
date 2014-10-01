@@ -1,0 +1,8 @@
+C:\Users\Erik\Documents\GitHub\1dv402-eh222ve-2-3-shapes\_1DV402.S2.L03C\bin\Debug\_1DV402.S2.L03C.exe.config
+C:\Users\Erik\Documents\GitHub\1dv402-eh222ve-2-3-shapes\_1DV402.S2.L03C\obj\Debug\_1DV402.S2.L03C.csprojResolveAssemblyReference.cache
+C:\Users\Erik\Documents\GitHub\1dv402-eh222ve-2-3-shapes\_1DV402.S2.L03C\bin\Debug\_1DV402.S2.L03C.exe
+C:\Users\Erik\Documents\GitHub\1dv402-eh222ve-2-3-shapes\_1DV402.S2.L03C\bin\Debug\_1DV402.S2.L03C.pdb
+C:\Users\Erik\Documents\GitHub\1dv402-eh222ve-2-3-shapes\_1DV402.S2.L03C\obj\Debug\_1DV402.S2.L03C.exe
+C:\Users\Erik\Documents\GitHub\1dv402-eh222ve-2-3-shapes\_1DV402.S2.L03C\obj\Debug\_1DV402.S2.L03C.pdb
+C:\Users\Erik\Documents\GitHub\1dv402-eh222ve-2-3-shapes\_1DV402.S2.L03C\obj\Debug\_1DV402.S2.L03C.Properties.Strings.resources
+C:\Users\Erik\Documents\GitHub\1dv402-eh222ve-2-3-shapes\_1DV402.S2.L03C\obj\Debug\_1DV402.S2.L03C.csproj.GenerateResource.Cache

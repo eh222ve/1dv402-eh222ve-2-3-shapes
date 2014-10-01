@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="_1DV402.S2.L03C.Cuboid">
+    <Position X="0.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAIAAIAAAAAAAA=</HashCode>
+      <FileName>Cuboid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1DV402.S2.L03C.Cylinder">
+    <Position X="2.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAIAAIAAAAAAAA=</HashCode>
+      <FileName>Cylinder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1DV402.S2.L03C.Ellipse">
+    <Position X="9.5" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Ellipse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1DV402.S2.L03C.Program">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAIABAAAABEAAAAgAgAAAAAAAAAAAAAACBAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1DV402.S2.L03C.Rectangle">
+    <Position X="7" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Rectangle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1DV402.S2.L03C.Shape">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAEAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Shape.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1DV402.S2.L03C.Shape2D">
+    <Position X="8" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAQEAAAAAEBAABAAAAAABAAAAQAAAAA=</HashCode>
+      <FileName>Shape2D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1DV402.S2.L03C.Shape3D">
+    <Position X="2.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAABACAAAQEAAAAAAAAAAAAIAAIAAIAAAAAAAA=</HashCode>
+      <FileName>Shape3D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1DV402.S2.L03C.Sphere">
+    <Position X="4.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAIAAIAAAAAAAA=</HashCode>
+      <FileName>Sphere.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="_1DV402.S2.L03C.ShapeType">
+    <Position X="10.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAQAAAAAAAggAAAAQAQAAAAAAAA=</HashCode>
+      <FileName>Shape.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
