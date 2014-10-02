@@ -66,6 +66,7 @@ namespace _1DV402.S2.L03C
             }
         }
 
+        //Skapar form tillsammans med user input
         private static Shape CreateShape(ShapeType shapeType){
             string header;
             Shape obj;
@@ -111,6 +112,7 @@ namespace _1DV402.S2.L03C
             return obj;
         }
 
+        //Random 5-20 former
         private static Shape2D[] Randomize2DShapes() {
             Random random = new Random();
 
@@ -144,6 +146,7 @@ namespace _1DV402.S2.L03C
             return objects;
         }
 
+        //Random 5-20 former
         private static Shape3D[] Randomize3DShapes()
         {
             Random random = new Random();
@@ -178,6 +181,7 @@ namespace _1DV402.S2.L03C
             return objects;
         }
 
+        //Avgör hur många värden som ska läsas in för olika former
         private static double[] ReadDimensions(ShapeType shapeType) {
             
             string prompt;
@@ -217,6 +221,7 @@ namespace _1DV402.S2.L03C
             return output;
         }
 
+        //Efterfrågar userinput och splittar sträng med " ".
         private static double[] ReadDoublesGreaterThanZero(string prompt, int numberOfValues = 1) {
             double[] output = new double[numberOfValues];
             
@@ -241,6 +246,7 @@ namespace _1DV402.S2.L03C
             return output;
         }
 
+        //Visar huvudmeny
         private static void ViewMenu() {
             MyExtensions.ChangeColor(ConsoleColor.DarkCyan, ConsoleColor.White);
             Console.WriteLine("----------------------------------------");
@@ -267,16 +273,19 @@ namespace _1DV402.S2.L03C
 
         }
 
+        //Visar felmeddelande från menyn
         private static void ViewMenuErrorMessage() {
             MyExtensions.ChangeColor(ConsoleColor.Red, ConsoleColor.White);
             Console.WriteLine(Strings.Error_Message);
             MyExtensions.ChangeColor();
         }
 
+        //Visar upp detaljer för ett objekt
         private static void ViewShapeDetail(Shape shape) {
             Console.WriteLine(shape.ToString());
         }
 
+        //Visar upp tabell med detaljer för minst 1 objekt
         private static void ViewShapes(Shape[] shapes) {
 
             MyExtensions.ChangeColor(ConsoleColor.DarkCyan, ConsoleColor.White);
