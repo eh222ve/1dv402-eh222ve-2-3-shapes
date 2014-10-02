@@ -58,9 +58,7 @@ namespace _1DV402.S2.L03C
                 }
                 catch
                 {
-                    MyExtensions.ChangeColor(ConsoleColor.Red, ConsoleColor.White);
-                    Console.WriteLine(Strings.Error_Message);
-                    MyExtensions.ChangeColor();
+                    ViewMenuErrorMessage();
                 }
                 Console.WriteLine("\n{0}", Strings.Continue_Prompt);
                 Console.ReadKey();
@@ -269,8 +267,10 @@ namespace _1DV402.S2.L03C
 
         }
 
-        private static void ViewMenuErrorMessage() { 
-        
+        private static void ViewMenuErrorMessage() {
+            MyExtensions.ChangeColor(ConsoleColor.Red, ConsoleColor.White);
+            Console.WriteLine(Strings.Error_Message);
+            MyExtensions.ChangeColor();
         }
 
         private static void ViewShapeDetail(Shape shape) {
