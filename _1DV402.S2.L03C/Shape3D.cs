@@ -91,7 +91,7 @@ namespace _1DV402.S2.L03C
         {
             if (format == "R")
             {
-                return String.Format("{0, -10}{1, 10:F2}{2, 10:F2}{3, 10:F2}{4, 10:F2}{5, 10:F2}{6, 10:F2}", 
+                return String.Format("{0, -10}{1, 10:F0}{2, 10:F0}{3, 10:F0}{4, 10:F0}{5, 10:F0}{6, 10:F0}", 
                     ShapeType.AsText(), 
                     _baseShape.Length, 
                     _baseShape.Width,

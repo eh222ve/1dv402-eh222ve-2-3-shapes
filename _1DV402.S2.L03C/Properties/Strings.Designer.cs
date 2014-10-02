@@ -97,6 +97,24 @@ namespace _1DV402.S2.L03C.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tryck på valfri tangent för att gå till menyn.
+        /// </summary>
+        internal static string Continue_Prompt {
+            get {
+                return ResourceManager.GetString("Continue_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Någonting gick snett!.
+        /// </summary>
+        internal static string Error_Message {
+            get {
+                return ResourceManager.GetString("Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Höjd.
         /// </summary>
         internal static string Height {
@@ -169,6 +187,15 @@ namespace _1DV402.S2.L03C.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Figur.
+        /// </summary>
+        internal static string Shape {
+            get {
+                return ResourceManager.GetString("Shape", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cirkel.
         /// </summary>
         internal static string Shape_Circle {
@@ -228,6 +255,15 @@ namespace _1DV402.S2.L03C.Properties {
         internal static string TotalSurfaceArea {
             get {
                 return ResourceManager.GetString("TotalSurfaceArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Begräns.area.
+        /// </summary>
+        internal static string TotalSurfaceArea_Short {
+            get {
+                return ResourceManager.GetString("TotalSurfaceArea_Short", resourceCulture);
             }
         }
         

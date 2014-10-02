@@ -59,10 +59,10 @@ namespace _1DV402.S2.L03C
                 catch
                 {
                     MyExtensions.ChangeColor(ConsoleColor.Red, ConsoleColor.White);
-                    Console.WriteLine("Something went wrong");
+                    Console.WriteLine(Strings.Error_Message);
                     MyExtensions.ChangeColor();
                 }
-                Console.WriteLine("Press any key to continue");
+                Console.WriteLine("\n{0}", Strings.Continue_Prompt);
                 Console.ReadKey();
                 Console.Clear();
             }
@@ -114,12 +114,70 @@ namespace _1DV402.S2.L03C
         }
 
         private static Shape2D[] Randomize2DShapes() {
-            throw new NotImplementedException();
+            Random random = new Random();
+
+            int numberOfShapes = random.Next(5, 20);
+
+            Shape2D[] objects = new Shape2D[numberOfShapes];
+
+            for (int i = 0; i < numberOfShapes; i++)
+            {
+                int objectType = random.Next(1, 4);
+
+                Shape2D obj;
+
+                switch (objectType)
+                    {
+                        case 1:
+                            obj = new Rectangle(random.Next(5, 100), random.Next(5, 100));
+                            break;
+                        case 2:
+                            obj = new Ellipse(random.Next(5, 100));
+                            break;
+                        case 3:
+                            obj = new Ellipse(random.Next(5, 100), random.Next(5, 100));
+                            break;
+                        default:
+                            throw new ArgumentException();
+                    }
+                objects[i] = obj;
+            }
+
+            return objects;
         }
 
         private static Shape3D[] Randomize3DShapes()
         {
-            throw new NotImplementedException();
+            Random random = new Random();
+
+            int numberOfShapes = random.Next(5, 20);
+
+            Shape3D[] objects = new Shape3D[numberOfShapes];
+
+            for (int i = 0; i < numberOfShapes; i++)
+            {
+                int objectType = random.Next(1, 4);
+
+                Shape3D obj;
+                
+                switch (objectType)
+                {
+                    case 1:
+                        obj = new Cuboid(random.Next(5, 100), random.Next(5, 100), random.Next(5, 100));
+                        break;
+                    case 2:
+                        obj = new Cylinder(random.Next(5, 100), random.Next(5, 100), random.Next(5, 100));
+                        break;
+                    case 3:
+                        obj = new Sphere(random.Next(5, 100));
+                        break;
+                    default:
+                        throw new ArgumentException();
+                }
+                objects[i] = obj;
+            }
+
+            return objects;
         }
 
         private static double[] ReadDimensions(ShapeType shapeType) {
@@ -165,26 +223,21 @@ namespace _1DV402.S2.L03C
             double[] output = new double[numberOfValues];
             
             Console.Write(" {0}", prompt);
-            try
+
+            string stringInput = Console.ReadLine();
+            string[] arrayInput = stringInput.Split(' ');
+
+            if (arrayInput.Length != numberOfValues)
             {
-                string stringInput = Console.ReadLine();
-                string[] arrayInput = stringInput.Split(' ');
-
-                if (arrayInput.Length != numberOfValues)
-                {
-                    throw new ArgumentException();
-                }
-
-                for (int i = 0; i < numberOfValues; i++)
-                {
-                    output[i] = double.Parse(arrayInput[i]);
-                    if (output[i] <= 0) {
-                        throw new ArgumentOutOfRangeException();
-                    }
-                }
+                throw new ArgumentException();
             }
-            catch {
-                Console.WriteLine("unexpected Error");
+
+            for (int i = 0; i < numberOfValues; i++)
+            {
+                output[i] = double.Parse(arrayInput[i]);
+                if (output[i] <= 0) {
+                    throw new ArgumentOutOfRangeException();
+                }
             }
 
             return output;
@@ -225,13 +278,39 @@ namespace _1DV402.S2.L03C
         }
 
         private static void ViewShapes(Shape[] shapes) {
+
+            MyExtensions.ChangeColor(ConsoleColor.DarkCyan, ConsoleColor.White);
+
+            if (shapes[0].IsShape3d)
+            {
+                Console.WriteLine("-----------------------------------------------------------------------------");
+                Console.WriteLine("| {0, -8}{1, 10:F0}{2, 10:F0}{3, 10:F0}{4, 13:F0}{5, 7:F0}{6, 15:F0} |",
+                    Strings.Shape,
+                    Strings.Length,
+                    Strings.Width,
+                    Strings.Height,
+                    Strings.MantelArea,
+                    Strings.Volume,
+                    Strings.TotalSurfaceArea_Short);
+                Console.WriteLine("-----------------------------------------------------------------------------");
+            }
+            else {
+                Console.WriteLine("----------------------------------------------------");
+                Console.WriteLine("| {0, -8}{1, 10:F0}{2, 10:F0}{3, 10:F0}{4, 10:F0} |",
+                    Strings.Shape,
+                    Strings.Length,
+                    Strings.Width, 
+                    Strings.Area, 
+                    Strings.Perimeter);
+                Console.WriteLine("----------------------------------------------------");
+            }
+            MyExtensions.ChangeColor();
+
             for (int i = 0; i < shapes.Length; i++)
             {
                 Console.WriteLine(shapes[i].ToString("R"));    
             }
         }
-
-
 
     }
    

@@ -129,6 +129,12 @@
   <data name="Circle" xml:space="preserve">
     <value>Cirkel</value>
   </data>
+  <data name="Continue_Prompt" xml:space="preserve">
+    <value>Tryck på valfri tangent för att gå till menyn</value>
+  </data>
+  <data name="Error_Message" xml:space="preserve">
+    <value>Någonting gick snett!</value>
+  </data>
   <data name="Height" xml:space="preserve">
     <value>Höjd</value>
   </data>
@@ -153,6 +159,9 @@
   <data name="Perimeter" xml:space="preserve">
     <value>Omkrets</value>
   </data>
+  <data name="Shape" xml:space="preserve">
+    <value>Figur</value>
+  </data>
   <data name="Shape_Circle" xml:space="preserve">
     <value>Cirkel</value>
   </data>
@@ -173,6 +182,9 @@
   </data>
   <data name="TotalSurfaceArea" xml:space="preserve">
     <value>Begränsningsarea</value>
+  </data>
+  <data name="TotalSurfaceArea_Short" xml:space="preserve">
+    <value>Begräns.area</value>
   </data>
   <data name="Volume" xml:space="preserve">
     <value>Volym</value>

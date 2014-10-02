@@ -10,7 +10,7 @@ namespace _1DV402.S2.L03C
     {
         public override double Area{
             get {
-                return Math.PI * Length * Width;
+                return Math.PI * Length/2 * Width/2;
             }
         }
 
@@ -18,17 +18,17 @@ namespace _1DV402.S2.L03C
         {
             get
             {
-                return Math.PI * Math.Sqrt(2 * Math.Exp(Length) + 2 * Math.Exp(Width));
+                return Math.PI * (Length / 2 + Width / 2);
             }
         }
 
-        public Ellipse(double radius)
-            : base(ShapeType.Circle, radius, radius)
+        public Ellipse(double diameter)
+            : base(ShapeType.Circle, diameter, diameter)
         {
         }
 
-        public Ellipse(double hradius, double vradius)
-            : base(ShapeType.Ellipse, hradius, vradius)
+        public Ellipse(double hdiameter, double vdiameter)
+            : base(ShapeType.Ellipse, hdiameter, vdiameter)
         {
         }
 

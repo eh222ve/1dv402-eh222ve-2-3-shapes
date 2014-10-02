@@ -10,7 +10,7 @@ namespace _1DV402.S2.L03C
     {
         public override double Area{
             get {
-                return this.Width * this.Length;
+                return Width * Length;
             }
         }
 
@@ -18,7 +18,7 @@ namespace _1DV402.S2.L03C
         {
             get
             {
-                return (this.Width * 2) + (this.Length * 2);
+                return (Width * 2) + (Length * 2);
             }
         }
 
