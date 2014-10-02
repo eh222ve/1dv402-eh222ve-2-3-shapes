@@ -60,7 +60,7 @@ namespace _1DV402.S2.L03C
                 {
                     ViewMenuErrorMessage();
                 }
-                Console.WriteLine("\n{0}", Strings.Continue_Prompt);
+                Console.Write("\n{0}", Strings.Continue_Prompt);
                 Console.ReadKey();
                 Console.Clear();
             }
