@@ -19,37 +19,34 @@ namespace _1DV402.S2.L03C
             {
                 ViewMenu();
 
-                ConsoleKeyInfo menuChoice = Console.ReadKey();
-                Console.Clear();
-
                 ShapeType shapeToCreate = ShapeType.Undefined;
 
-                switch (menuChoice.KeyChar.ToString()) //För att ta hand om NumPad och "vanlig" siffra
+                switch (GetMenuInput())
                 {
-                    case "0":
+                    case 0:
                         return;
-                    case "1":
+                    case 1:
                         shapeToCreate = ShapeType.Rectangle;
                         break;
-                    case "2":
+                    case 2:
                         shapeToCreate = ShapeType.Circle;
                         break;
-                    case "3":
+                    case 3:
                         shapeToCreate = ShapeType.Ellipse;
                         break;
-                    case "4":
+                    case 4:
                         shapeToCreate = ShapeType.Cuboid;
                         break;
-                    case "5":
+                    case 5:
                         shapeToCreate = ShapeType.Cylinder;
                         break;
-                    case "6":
+                    case 6:
                         shapeToCreate = ShapeType.Sphere;
                         break;
-                    case "7":
+                    case 7:
                         ViewShapes(Randomize2DShapes());
                         break;
-                    case "8":
+                    case 8:
                         ViewShapes(Randomize3DShapes());
                         break;
                     default:
@@ -64,6 +61,27 @@ namespace _1DV402.S2.L03C
 
                 ContinueToMenu(Strings.Continue_Prompt);
             }
+        }
+
+        //Retrieves ConsoleKeyInput from user
+        private static int GetMenuInput()
+        {
+            while (true)
+            {
+                ConsoleKeyInfo menuChoice = Console.ReadKey();
+                
+                try
+                {   //För att ta hand om NumPad och "vanlig" siffra
+                    int value = Int32.Parse(menuChoice.KeyChar.ToString());
+                    Console.Clear();
+                    return value;
+                }
+                catch (Exception)
+                {
+                    ViewMenuErrorMessage();
+                } 
+            }
+
         }
 
         //Skapar geometrisk form tillsammans med user input
