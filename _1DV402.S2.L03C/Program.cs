@@ -18,57 +18,56 @@ namespace _1DV402.S2.L03C
             while (true)
             {
                 ViewMenu();
-                try
-                {
-                    int menuChoice = int.Parse(Console.ReadLine());
 
-                    Console.Clear();
-
-                    switch (menuChoice)
-                    {
-                        case 0:
-                            return;
-                        case 1:
-                            ViewShapeDetail(CreateShape(ShapeType.Rectangle));
-                            break;
-                        case 2:
-                            ViewShapeDetail(CreateShape(ShapeType.Circle));
-                            break;
-                        case 3:
-                            ViewShapeDetail(CreateShape(ShapeType.Ellipse));
-                            break;
-                        case 4:
-                            ViewShapeDetail(CreateShape(ShapeType.Cuboid));
-                            break;
-                        case 5:
-                            ViewShapeDetail(CreateShape(ShapeType.Cylinder));
-                            break;
-                        case 6:
-                            ViewShapeDetail(CreateShape(ShapeType.Sphere));
-                            break;
-                        case 7:
-                            ViewShapes(Randomize2DShapes());
-                            break;
-                        case 8:
-                            ViewShapes(Randomize3DShapes());
-                            break;
-                        default:
-                            throw new ArgumentException();
-                    }
-                }
-                catch
-                {
-                    ViewMenuErrorMessage();
-                }
-                Console.Write("\n{0}", Strings.Continue_Prompt);
-                Console.ReadKey();
+                ConsoleKeyInfo menuChoice = Console.ReadKey();
                 Console.Clear();
+
+                ShapeType shapeToCreate = ShapeType.Undefined;
+
+                switch (menuChoice.KeyChar.ToString()) //För att ta hand om NumPad och "vanlig" siffra
+                {
+                    case "0":
+                        return;
+                    case "1":
+                        shapeToCreate = ShapeType.Rectangle;
+                        break;
+                    case "2":
+                        shapeToCreate = ShapeType.Circle;
+                        break;
+                    case "3":
+                        shapeToCreate = ShapeType.Ellipse;
+                        break;
+                    case "4":
+                        shapeToCreate = ShapeType.Cuboid;
+                        break;
+                    case "5":
+                        shapeToCreate = ShapeType.Cylinder;
+                        break;
+                    case "6":
+                        shapeToCreate = ShapeType.Sphere;
+                        break;
+                    case "7":
+                        ViewShapes(Randomize2DShapes());
+                        break;
+                    case "8":
+                        ViewShapes(Randomize3DShapes());
+                        break;
+                    default:
+                        ViewMenuErrorMessage();
+                        break;
+                }
+
+                if (shapeToCreate != ShapeType.Undefined)
+                {
+                    ViewShapeDetail(CreateShape(shapeToCreate));
+                }
+
+                ContinueToMenu(Strings.Continue_Prompt);
             }
         }
 
-        //Skapar form tillsammans med user input
+        //Skapar geometrisk form tillsammans med user input
         private static Shape CreateShape(ShapeType shapeType){
-            string header;
             Shape obj;
 
             MyExtensions.ChangeColor(ConsoleColor.DarkCyan, ConsoleColor.White);
@@ -82,27 +81,21 @@ namespace _1DV402.S2.L03C
             switch (shapeType)
             {
                 case ShapeType.Circle:
-                    header = Strings.Shape_Circle;
                     obj = new Ellipse(shapeProperties[0]);
                     break;
                 case ShapeType.Ellipse:
-                    header = Strings.Shape_Ellipse;
                     obj = new Ellipse(shapeProperties[0], shapeProperties[1]);
                     break;
                 case ShapeType.Rectangle:
-                    header = Strings.Shape_Rectangle;
                     obj = new Rectangle(shapeProperties[0], shapeProperties[1]);
                     break;
                 case ShapeType.Cuboid:
-                    header = Strings.Shape_Cuboid;
                     obj = new Cuboid(shapeProperties[0], shapeProperties[1], shapeProperties[1]);
                     break;
                 case ShapeType.Cylinder:
-                    header = Strings.Shape_Cylinder;
                     obj = new Cylinder(shapeProperties[0], shapeProperties[1], shapeProperties[1]);
                     break;
                 case ShapeType.Sphere:
-                    header = Strings.Shape_Sphere;
                     obj = new Sphere(shapeProperties[0]);
                     break;
                 default:
@@ -224,25 +217,33 @@ namespace _1DV402.S2.L03C
         //Efterfrågar userinput och splittar sträng med " ".
         private static double[] ReadDoublesGreaterThanZero(string prompt, int numberOfValues = 1) {
             double[] output = new double[numberOfValues];
-            
-            Console.Write(" {0}", prompt);
-
-            string stringInput = Console.ReadLine();
-            string[] arrayInput = stringInput.Split(' ');
-
-            if (arrayInput.Length != numberOfValues)
+            while (true)
             {
-                throw new ArgumentException();
-            }
+                Console.Write(" {0}", prompt);
+                try
+                {
+                    string stringInput = Console.ReadLine();
+                    string[] arrayInput = stringInput.Split(' ');
 
-            for (int i = 0; i < numberOfValues; i++)
-            {
-                output[i] = double.Parse(arrayInput[i]);
-                if (output[i] <= 0) {
-                    throw new ArgumentOutOfRangeException();
+                    if (arrayInput.Length != numberOfValues)
+                    {
+                        throw new ArgumentException();
+                    }
+
+                    for (int i = 0; i < numberOfValues; i++)
+                    {
+                        output[i] = double.Parse(arrayInput[i]);
+                        if (output[i] <= 0) {
+                            throw new ArgumentOutOfRangeException();
+                        }
+                    }
+                    break;
+                }
+                catch
+                {
+                    ViewMenuErrorMessage();
                 }
             }
-
             return output;
         }
 
@@ -272,7 +273,18 @@ namespace _1DV402.S2.L03C
             Console.WriteLine();
 
         }
-
+        
+        //Efterfrågar knapptryck
+        private static void ContinueToMenu(string prompt) {
+            MyExtensions.ChangeColor(ConsoleColor.Blue, ConsoleColor.White);
+            Console.CursorVisible = false;
+            Console.Write("\n{0} ", prompt.CenterAlignString("", Console.WindowWidth));
+            MyExtensions.ChangeColor();
+            Console.ReadKey();
+            Console.CursorVisible = true;
+            Console.Clear();
+        }
+        
         //Visar felmeddelande från menyn
         private static void ViewMenuErrorMessage() {
             MyExtensions.ChangeColor(ConsoleColor.Red, ConsoleColor.White);
@@ -292,8 +304,8 @@ namespace _1DV402.S2.L03C
 
             if (shapes[0].IsShape3d)
             {
-                Console.WriteLine("-----------------------------------------------------------------------------");
-                Console.WriteLine("| {0, -8}{1, 10:F0}{2, 10:F0}{3, 10:F0}{4, 13:F0}{5, 7:F0}{6, 15:F0} |",
+                Console.WriteLine("-------------------------------------------------------------------------------");
+                Console.WriteLine("|  {0, -9}{1, 10:F0}{2, 10:F0}{3, 10:F0}{4, 13:F0}{5, 7:F0}{6, 15:F0} |",
                     Strings.Shape,
                     Strings.Length,
                     Strings.Width,
@@ -301,23 +313,23 @@ namespace _1DV402.S2.L03C
                     Strings.MantelArea,
                     Strings.Volume,
                     Strings.TotalSurfaceArea_Short);
-                Console.WriteLine("-----------------------------------------------------------------------------");
+                Console.WriteLine("-------------------------------------------------------------------------------");
             }
             else {
-                Console.WriteLine("----------------------------------------------------");
-                Console.WriteLine("| {0, -8}{1, 10:F0}{2, 10:F0}{3, 10:F0}{4, 10:F0} |",
+                Console.WriteLine("------------------------------------------------------");
+                Console.WriteLine("|  {0, -9}{1, 10:F0}{2, 10:F0}{3, 10:F0}{4, 10:F0} |",
                     Strings.Shape,
                     Strings.Length,
                     Strings.Width, 
                     Strings.Area, 
                     Strings.Perimeter);
-                Console.WriteLine("----------------------------------------------------");
+                Console.WriteLine("------------------------------------------------------");
             }
             MyExtensions.ChangeColor();
 
             for (int i = 0; i < shapes.Length; i++)
             {
-                Console.WriteLine(shapes[i].ToString("R"));    
+                Console.WriteLine("{0, 2}. {1}", i+1, shapes[i].ToString("R"));    
             }
         }
 

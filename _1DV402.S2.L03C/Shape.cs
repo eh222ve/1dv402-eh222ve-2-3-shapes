@@ -37,6 +37,7 @@ namespace _1DV402.S2.L03C
 
     public enum ShapeType
     {
+        Undefined,
         Rectangle,
         Circle,
         Ellipse,
